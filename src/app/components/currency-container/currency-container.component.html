@@ -1,3 +1,33 @@
-<div id="currencyContainer" fxLayout="row">
-    <h2>{{currencyMarketData | async | json}}</h2>
+<div id="currencyContainer" class="mat-elevation-z8">
+    <div class="currency-header-container" fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="space-between center">
+        <span class="component-header">Market Data</span>
+        <mat-button-toggle-group name="filterTypeOption" (change)="applyFilter($event)" aria-label="Type Filter Option">
+            <mat-button-toggle value="all" checked>All</mat-button-toggle>
+            <mat-button-toggle value="forex">Forex</mat-button-toggle>
+            <mat-button-toggle value="stocks">Stocks</mat-button-toggle>
+            <mat-button-toggle value="crypto">Crypto Currency</mat-button-toggle>
+        </mat-button-toggle-group>
+    </div>
+    <div class="marketDataContainer" *ngIf="marketData.length > 0">
+        <table mat-table [dataSource]="marketData">
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef>Name</th>
+                <td mat-cell *matCellDef="let row">{{row.name}}</td>
+            </ng-container>
+            <ng-container matColumnDef="bid">
+                <th mat-header-cell *matHeaderCellDef>Bid</th>
+                <td mat-cell *matCellDef="let row">{{row.bid}}</td>
+            </ng-container>
+            <ng-container matColumnDef="ask">
+                <th mat-header-cell *matHeaderCellDef>Ask</th>
+                <td mat-cell *matCellDef="let row">{{row.ask}}</td>
+            </ng-container>
+            <ng-container matColumnDef="onedaychange">
+                <th mat-header-cell *matHeaderCellDef>1D Change</th>
+                <td mat-cell *matCellDef="let row">{{row.onedaychange}}</td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
 </div>

@@ -8,7 +8,8 @@ import { CurrencyContainerComponent } from './components/currency-container/curr
 import { StatsContainerComponent } from './components/stats-container/stats-container.component';
 import { ForexContainerComponent } from './components/forex-container/forex-container.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MatToolbarModule } from '@angular/material';
+import { MatButtonModule, MatButtonToggleModule, MatIconModule, MatTableModule, MatToolbarModule } from '@angular/material';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,10 +22,16 @@ import { MatToolbarModule } from '@angular/material';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    FormsModule,
     FlexLayoutModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatTableModule,
+    MatButtonModule,
+    MatIconModule,
+    MatButtonToggleModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+}

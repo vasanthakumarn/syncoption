@@ -1,3 +1,19 @@
 #currencyContainer {
-    
+    padding: 20px;
+    .currency-header-container {
+        margin-bottom: 20px;
+    }
+    .marketDataContainer {
+        .mat-table {
+            padding: 20px;
+            width: 100%;
+            border: 1px solid;
+            .mat-header-row {
+                background-color: rgba(241, 241, 241, 1)
+            }
+            .mat-row:nth-child(even) {
+                background-color: rgba(241, 241, 241, 1)
+            }
+        }
+    }
 }

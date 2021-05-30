@@ -1,3 +1,14 @@
-<div id="statsContainer" fxLayout="row">
-    <h2>stats-container works!</h2>
+<div id="statsContainer" class="mat-elevation-z8">
+    <div class="stats-header-container" fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="space-between center">
+        <span class="component-header">Server Stats</span>
+        <button mat-button mat-mini-fab>
+            <mat-icon>refresh</mat-icon>
+        </button>
+    </div>
+    <div class="stats-info-container">
+        <h1>Current Time: {{statsData?.date | date}}</h1>
+        <h1>CPU Utlization: {{statsData?.cpuUtilization}}</h1>
+    </div>
 </div>
+
+

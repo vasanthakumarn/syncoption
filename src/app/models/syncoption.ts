@@ -4,5 +4,10 @@ export interface ICurrencyMarketData {
 
 export interface ICurrencyData {
     name: string;
-    value: number;
+    desription?: string;
+    icon?: string;
+    bid: number;
+    ask: number;
+    onedaychange: number;
+    type: string;
 }
