@@ -18,7 +18,7 @@ app.use('/', httpsRedirect());
 
 app.use('/', wwwDotMiddleware());
 
-app.use(express.static(__dirname + '/dist/frontend', {
+app.use(express.static(__dirname + '/dist/syncoption-frontend', {
   maxAge: '1d',
   setHeaders: response => {
     response.setHeader('Expires', new Date(Date.now() + 86400000 * 1).toUTCString());
@@ -26,7 +26,7 @@ app.use(express.static(__dirname + '/dist/frontend', {
 }));
 
 app.get("/*", (request, response) => {
-  response.sendFile(path.join(__dirname + '/dist/frontend/index.html'));
+  response.sendFile(path.join(__dirname + '/dist/syncoption-frontend/index.html'));
 });
 
 app.listen(process.env.PORT || 8080);
