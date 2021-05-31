@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  apiUrl: 'https://shielded-woodland-45955.herokuapp.com/'
 };

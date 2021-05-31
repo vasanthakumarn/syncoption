@@ -8,8 +8,11 @@ import { CurrencyContainerComponent } from './components/currency-container/curr
 import { StatsContainerComponent } from './components/stats-container/stats-container.component';
 import { ForexContainerComponent } from './components/forex-container/forex-container.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MatButtonModule, MatButtonToggleModule, MatIconModule, MatTableModule, MatToolbarModule } from '@angular/material';
+import { MatButtonModule, MatButtonToggleModule, MatIconModule, MatProgressSpinnerModule, MatTableModule, MatToolbarModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
+import { GaugeChartModule } from 'angular-gauge-chart';
+import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -23,12 +26,16 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
+    CommonModule,
+    HttpClientModule,
     FlexLayoutModule,
+    GaugeChartModule,
     MatToolbarModule,
     MatTableModule,
     MatButtonModule,
     MatIconModule,
     MatButtonToggleModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

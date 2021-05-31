@@ -1,7 +1,11 @@
 #statsContainer {
     padding: 20px;
+    min-height: 400px;
     .stats-header-container{
         margin-bottom: 20px;
+    }
+    .preloader-container {
+        height: 350px;
     }
     .marketDataContainer {
         .mat-table {

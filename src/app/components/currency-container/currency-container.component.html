@@ -1,14 +1,19 @@
 <div id="currencyContainer" class="mat-elevation-z8">
     <div class="currency-header-container" fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="space-between center">
         <span class="component-header">Market Data</span>
-        <mat-button-toggle-group name="filterTypeOption" (change)="applyFilter($event)" aria-label="Type Filter Option">
-            <mat-button-toggle value="all" checked>All</mat-button-toggle>
-            <mat-button-toggle value="forex">Forex</mat-button-toggle>
-            <mat-button-toggle value="stocks">Stocks</mat-button-toggle>
-            <mat-button-toggle value="crypto">Crypto Currency</mat-button-toggle>
-        </mat-button-toggle-group>
+        <div fxLayoutGap="20px">
+            <mat-button-toggle-group name="filterTypeOption" (change)="applyFilter($event)" aria-label="Type Filter Option">
+                <mat-button-toggle value="all" checked>All</mat-button-toggle>
+                <mat-button-toggle value="forex">Forex</mat-button-toggle>
+                <mat-button-toggle value="stocks">Stocks</mat-button-toggle>
+                <mat-button-toggle value="crypto">Crypto Currency</mat-button-toggle>
+            </mat-button-toggle-group>
+            <button mat-button mat-mini-fab (click)="getMarketData()">
+                <mat-icon>refresh</mat-icon>
+            </button>
+        </div>
     </div>
-    <div class="marketDataContainer" *ngIf="marketData.length > 0">
+    <div class="marketDataContainer" *ngIf="dataLoaded">
         <table mat-table [dataSource]="marketData">
             <ng-container matColumnDef="name">
                 <th mat-header-cell *matHeaderCellDef>Name</th>
@@ -29,5 +34,12 @@
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
+    </div>
+    <div class="preloader-container" *ngIf="!dataLoaded" fxLayoutAlign="center center">
+        <mat-progress-spinner
+            color="primary"
+            mode="indeterminate"
+            >
+        </mat-progress-spinner>
     </div>
 </div>

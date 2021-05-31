@@ -15,7 +15,6 @@ export class SocketIoService {
   listenToServer():Observable<any> {
     return new Observable((subscribe) => {
       this.clientSocket.on('connect', (data) => {
-        console.log('Subscribed', data);
         subscribe.next(data);
       });
     });
